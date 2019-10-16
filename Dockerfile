@@ -10,7 +10,7 @@ RUN set -x && \
 	mv linux_amd64_client* /npc && \
 	cd /npc && \
 	tar xzf linux_amd64_client.tar.gz && \
-	rm -rf *.tar.gz && \
+	rm -rf *.tar.gz
 
 ENV SERVERIP 127.0.0.1:8024
 ENV VKEY 123
