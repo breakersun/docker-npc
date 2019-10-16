@@ -15,4 +15,4 @@ RUN set -x && \
 ENV SERVERIP 127.0.0.1:8024
 ENV VKEY 123
 
-CMD /npc/npc -server=${SERVERIP} -vkey=${VKEY}
+CMD /npc/nps/npc -server=${SERVERIP} -vkey=${VKEY}
