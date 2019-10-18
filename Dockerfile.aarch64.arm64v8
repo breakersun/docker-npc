@@ -1,9 +1,8 @@
-FROM arm64v8/python:3.6-slim-buster
-MAINTAINER breakersun <leosunsl@outlook.com>
+FROM arm64v8/alpine:3.10
+MAINTAINER leosun <leosunsl@outlook.com>
 COPY qemu-aarch64-static /usr/bin/
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends wget
+RUN apk add wget
 
 WORKDIR /
 ENV NPC_VERSION 0.23.2
