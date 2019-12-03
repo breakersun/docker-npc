@@ -1,0 +1,21 @@
+FROM arm32v7/alpine:latest
+MAINTAINER leosun <leosunsl@outlook.com>
+COPY qemu-arm-static /usr/bin/
+
+RUN apk add wget
+
+WORKDIR /
+ENV NPC_VERSION 0.23.2
+
+RUN set -x && \
+	wget --no-check-certificate https://github.com/cnlh/nps/releases/download/v${NPC_VERSION}/linux_arm64_client.tar.gz && \
+	mkdir \npc && \
+	mv linux_arm64_client* /npc && \
+	cd /npc && \
+	tar xzf linux_arm64_client.tar.gz && \
+	rm -rf *.tar.gz
+
+ENV SERVERIP 127.0.0.1:8024
+ENV VKEY 123
+
+CMD /npc/nps/npc -server=${SERVERIP} -vkey=${VKEY}
